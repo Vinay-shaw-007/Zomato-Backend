@@ -1,12 +1,15 @@
 package com.vinay.food_ordering_app.Food.Ordering.App.services;
 
 import com.vinay.food_ordering_app.Food.Ordering.App.dto.CustomerDto;
-import com.vinay.food_ordering_app.Food.Ordering.App.dto.MenuItemDto;
-import com.vinay.food_ordering_app.Food.Ordering.App.dto.TakeOrderDto;
+import com.vinay.food_ordering_app.Food.Ordering.App.dto.OrderDto;
+import com.vinay.food_ordering_app.Food.Ordering.App.dto.ReviewDto;
+import com.vinay.food_ordering_app.Food.Ordering.App.dto.WalletDto;
+import com.vinay.food_ordering_app.Food.Ordering.App.dto.utilityDto.RestaurantReviewDto;
+import com.vinay.food_ordering_app.Food.Ordering.App.dto.utilityDto.TakeOrderDto;
+import com.vinay.food_ordering_app.Food.Ordering.App.entities.WalletEntity;
+import com.vinay.food_ordering_app.Food.Ordering.App.entities.enums.PaymentMethod;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.CustomerEntity;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.UserEntity;
-
-import java.util.List;
 
 public interface CustomerService {
 
@@ -14,7 +17,17 @@ public interface CustomerService {
 
     CustomerEntity getCustomerDetails(Long customerId);
 
-    CustomerDto updateCustomerProfile(Long customerId);
+    CustomerDto requestOrder(Long restaurantId, TakeOrderDto takeOrder);
 
-    CustomerDto requestOrder(Long customerId, Long restaurantId, TakeOrderDto takeOrder);
+    CustomerEntity getCurrentCustomer();
+
+    OrderDto cancelOrder(Long orderId);
+
+    OrderDto getOrderDetails(Long orderId);
+
+    CustomerDto updatePaymentMethod(PaymentMethod paymentMethod);
+
+    ReviewDto reviewRestaurant(Long restaurantId, RestaurantReviewDto restaurantReview);
+
+    WalletDto addMoneyToCustomerWallet(Long customerId, Double amount);
 }

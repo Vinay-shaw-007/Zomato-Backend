@@ -1,6 +1,5 @@
 package com.vinay.food_ordering_app.Food.Ordering.App.services.impl;
 
-import com.vinay.food_ordering_app.Food.Ordering.App.dto.NotificationDto;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.DeliveryEntity;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.MenuItemEntity;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.OrderEntity;
@@ -11,9 +10,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -23,11 +22,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     private final JavaMailSender javaMailSender;
 
-    @Override
-    public NotificationDto sendNotificationToCustomer(Long customerId) {
-        return null;
-    }
-
+    @Async
     @Override
     public void sendNotificationToRestaurantId(RestaurantEntity restaurant, OrderEntity order) {
         String email = restaurant.getRestaurantOwner().getUser().getEmail();
@@ -40,6 +35,7 @@ public class NotificationServiceImpl implements NotificationService {
         sendPushNotification(email, "Got New Order with ID #" + order.getId(), notificationMessage);
     }
 
+    @Async
     @Override
     public void notifyDeliveryPartner(DeliveryPartnerEntity deliveryPartner, DeliveryEntity delivery) {
         String message = String.format(
@@ -53,14 +49,7 @@ public class NotificationServiceImpl implements NotificationService {
         sendPushNotification(email, subject, message);
     }
 
-
-
-    @Override
-    public List<NotificationDto> getAllCustomerNotifications(Long customerId) {
-        return List.of();
-    }
-
-
+//  <--------------------------------- INTERNAL FUNCTION ----------------------------------------->
     private void sendPushNotification(String toEmail, String subject, String body) {
         try {
 

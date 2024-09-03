@@ -2,6 +2,7 @@ package com.vinay.food_ordering_app.Food.Ordering.App.services;
 
 import com.vinay.food_ordering_app.Food.Ordering.App.dto.DeliveryDto;
 import com.vinay.food_ordering_app.Food.Ordering.App.dto.DeliveryPartnerDto;
+import com.vinay.food_ordering_app.Food.Ordering.App.dto.utilityDto.UpdateDeliveryPartnerLocation;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.enums.DeliveryStatus;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.DeliveryPartnerEntity;
 
@@ -13,9 +14,9 @@ public interface DeliveryPartnerService {
 
     DeliveryPartnerEntity getDeliveryPartnerDetails(Long deliveryPartnerId);
 
-    DeliveryPartnerDto assignDeliveryToDeliveryPartner(Long deliveryPartnerId, DeliveryDto delivery);
+    DeliveryDto updateDeliveryStatus(Long deliveryId, DeliveryStatus status);
 
-    DeliveryPartnerDto updateDeliveryStatus(Long deliveryPartnerId, DeliveryStatus status);
+    DeliveryPartnerEntity getCurrentDeliveryPartner();
 
-    List<DeliveryPartnerDto> getAllDeliveryPartnerAssignment(Long deliveryPartnerId);
+    DeliveryPartnerEntity updateDeliveryPartnerLocation(UpdateDeliveryPartnerLocation location);
 }

@@ -20,4 +20,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not fount with id: "+userId));
     }
+
+    @Override
+    public UserEntity findByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
+    }
 }

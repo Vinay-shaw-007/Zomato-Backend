@@ -7,6 +7,9 @@ import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.D
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.locationtech.jts.geom.Point;
 
 import java.time.LocalDateTime;
 
@@ -18,11 +21,17 @@ public class DeliveryDto {
     private Long id;
 
     @JsonIgnore
-    private OrderEntity order;
+    private OrderDto order;
 
     private DeliveryPartnerDto deliveryPartner;
 
+    private PointDto deliveryLocation;
+
+    private Double amount;
+
     private DeliveryStatus deliveryStatus;
 
-    private LocalDateTime deliveryTime;
+    private LocalDateTime deliveryStarted;
+
+    private LocalDateTime deliveryCompleted;
 }

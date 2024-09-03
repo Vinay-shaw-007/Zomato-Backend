@@ -1,5 +1,6 @@
 package com.vinay.food_ordering_app.Food.Ordering.App.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.enums.PaymentMethod;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.enums.PaymentStatus;
 import lombok.AllArgsConstructor;
@@ -15,9 +16,13 @@ public class PaymentDto {
 
     private Long id;
 
+    @JsonIgnore
     private OrderDto order;
 
     private Double amount;
+
+    @JsonIgnore
+    private WalletDto wallet;
 
     private PaymentMethod paymentMethod;
 

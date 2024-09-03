@@ -47,12 +47,7 @@ public class OrderEntity {
     @Column(columnDefinition = "Geometry(Point, 4326)")
     private Point deliveryLocation;
 
-    @ManyToOne
-    @JoinColumn(name = "delivery_partner_id")
-    private DeliveryPartnerEntity deliveryPartner;
-
-    @OneToOne
-    @JoinColumn(name = "payment_id")
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private PaymentEntity payment;
 
     @Override

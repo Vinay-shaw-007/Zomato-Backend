@@ -6,4 +6,6 @@ import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.U
 public interface UserService {
 
     UserEntity getUserDetails(Long userId);
+
+    UserEntity findByEmail(String email);
 }

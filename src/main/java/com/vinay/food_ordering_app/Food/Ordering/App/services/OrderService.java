@@ -10,7 +10,8 @@ public interface OrderService {
 
     OrderEntity getOrderDetails(Long orderId);
 
-    OrderDto updateOrderStatus(Long orderId, OrderStatus orderStatus);
+    OrderDto updateOrderStatus(OrderEntity order, OrderStatus orderStatus);
 
-    OrderDto getAllCustomerOrders(Long customerId);
+    OrderDto cancelOrder(OrderEntity order);
+
 }

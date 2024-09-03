@@ -1,12 +1,14 @@
 package com.vinay.food_ordering_app.Food.Ordering.App.repositories;
 
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.DeliveryPartnerEntity;
+import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.UserEntity;
 import org.locationtech.jts.geom.Point;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DeliveryPartnerRepository extends JpaRepository<DeliveryPartnerEntity, Long> {
@@ -17,4 +19,7 @@ public interface DeliveryPartnerRepository extends JpaRepository<DeliveryPartner
             "ORDER BY distance " +
             "LIMIT 1", nativeQuery = true)
     DeliveryPartnerEntity findNearestDeliveryPartner(Point restaurantLocation);
+
+    Optional<DeliveryPartnerEntity> findByUser(UserEntity user);
 }
+

@@ -3,10 +3,7 @@ package com.vinay.food_ordering_app.Food.Ordering.App.entities;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.enums.PaymentMethod;
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.enums.PaymentStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -16,6 +13,7 @@ import java.util.Objects;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "payment")
 public class PaymentEntity {
 
@@ -23,10 +21,15 @@ public class PaymentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "payment")
+    @OneToOne
+    @JoinColumn(name = "order_id")
     private OrderEntity order;
 
     private Double amount;
+
+    @ManyToOne
+    @JoinColumn(name = "wallet_id")
+    private WalletEntity wallet;
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;

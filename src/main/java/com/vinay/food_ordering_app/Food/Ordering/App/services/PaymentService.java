@@ -1,11 +1,12 @@
 package com.vinay.food_ordering_app.Food.Ordering.App.services;
 
-import com.vinay.food_ordering_app.Food.Ordering.App.dto.OrderDto;
 import com.vinay.food_ordering_app.Food.Ordering.App.dto.PaymentDto;
+import com.vinay.food_ordering_app.Food.Ordering.App.entities.PaymentEntity;
+import com.vinay.food_ordering_app.Food.Ordering.App.entities.enums.PaymentStatus;
 
 public interface PaymentService {
 
-    PaymentDto createPayment(OrderDto order);
+    PaymentEntity updatePaymentStatus(PaymentEntity paymentEntity, PaymentStatus paymentStatus);
 
     PaymentDto getPaymentDetails(Long paymentId);
 }

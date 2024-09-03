@@ -32,8 +32,6 @@ public class OrderDto {
 
     private PointDto deliveryLocation;
 
-    private DeliveryPartnerDto deliveryPartner;
-
     private PaymentDto payment;
 
 }

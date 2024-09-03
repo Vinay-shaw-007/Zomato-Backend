@@ -4,6 +4,9 @@ import com.vinay.food_ordering_app.Food.Ordering.App.entities.enums.DeliveryStat
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.DeliveryPartnerEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.locationtech.jts.geom.Point;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -21,7 +24,7 @@ public class DeliveryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "order_id")
     private OrderEntity order;
 
@@ -29,10 +32,19 @@ public class DeliveryEntity {
     @JoinColumn(name = "delivery_partner_id")
     private DeliveryPartnerEntity deliveryPartner;
 
+    @Column(columnDefinition = "Geometry(Point, 4326)")
+    private Point deliveryLocation;
+
+    private Double amount;
+
     @Enumerated(EnumType.STRING)
     private DeliveryStatus deliveryStatus;
 
-    private LocalDateTime deliveryTime;
+    @CreationTimestamp
+    private LocalDateTime deliveryStarted;
+
+    private LocalDateTime deliveryCompleted;
+
 
     @Override
     public boolean equals(Object o) {

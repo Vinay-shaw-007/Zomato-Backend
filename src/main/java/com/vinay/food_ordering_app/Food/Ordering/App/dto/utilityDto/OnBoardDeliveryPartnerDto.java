@@ -1,5 +1,6 @@
-package com.vinay.food_ordering_app.Food.Ordering.App.dto;
+package com.vinay.food_ordering_app.Food.Ordering.App.dto.utilityDto;
 
+import com.vinay.food_ordering_app.Food.Ordering.App.dto.PointDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -2,10 +2,7 @@ package com.vinay.food_ordering_app.Food.Ordering.App.entities;
 
 import com.vinay.food_ordering_app.Food.Ordering.App.entities.realWorldEntites.CustomerEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -15,6 +12,7 @@ import java.util.Objects;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "review")
 public class ReviewEntity {
 
@@ -34,7 +32,7 @@ public class ReviewEntity {
 
     private String comment;
 
-    private LocalDateTime data;
+    private LocalDateTime date;
 
     @Override
     public boolean equals(Object o) {
