@@ -21,7 +21,7 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 public class WebSecurityConfig {
 
     private final JWTAuthFilter jwtAuthFilter;
-    private static final String[] PUBLIC_ROUTES = {"/auth/**", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html"};
+    private static final String[] PUBLIC_ROUTES = {"/auth/**", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/"};
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
