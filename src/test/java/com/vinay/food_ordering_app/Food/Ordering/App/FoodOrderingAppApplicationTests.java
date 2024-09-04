@@ -21,31 +21,4 @@ import java.util.List;
 @SpringBootTest
 class FoodOrderingAppApplicationTests {
 
-//	@Autowired
-//	private NotificationService notificationService;
-
-	@Autowired
-	private RestaurantRepository restaurantRepository;
-
-	@Autowired
-	private RestaurantService restaurantService;
-
-	@Autowired
-	private DeliveryPartnerFindingStrategy strategy;;
-
-	@Test
-	void testFindingPartnerFunctionality() {
-		RestaurantEntity restaurant = restaurantRepository.findById(1L).orElse(null);
-
-		DeliveryPartnerEntity deliveryPartner = strategy.findNearestDeliveryPartner(restaurant);
-
-		System.out.println(deliveryPartner);
-	}
-
-
-//	@Test
-//	void sendNotificationToRestaurantTest() {
-//		notificationService.sendNotificationToRestaurantId(new RestaurantEntity(), new OrderEntity());
-//	}
-
 }

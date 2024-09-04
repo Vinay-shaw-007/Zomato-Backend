@@ -24,7 +24,7 @@ public class WalletEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
-    private Double balance = 0.0;
+    private Double balance;
 
     @OneToMany(mappedBy = "wallet", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PaymentEntity> payments;
