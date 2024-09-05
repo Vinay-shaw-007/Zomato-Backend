@@ -11,6 +11,7 @@ This project is a comprehensive food ordering platform where customers can brows
 - [Database Schema](#database-schema)
 - [Design Component](#design-components)
 - [Future Enhancements](#future-enhancements)
+- [Project Demo](#project-demo)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -144,6 +145,13 @@ This project is a comprehensive food ordering platform where customers can brows
 
 - **Event-Driven Notifications:**
   - Enhance notification service with real-time updates.
+
+## Project Demo
+
+- **Watch the demo of the Food Ordering App on YouTube:**
+  - [Project Demo](https://youtu.be/TKZWyAXZeC8?si=od_mtrJAGDp8wA-x)
+  - This video provides a walkthrough of the app, including customer, restaurant, and delivery partner features.
+
 
 ## Contributing
 
