@@ -9,6 +9,7 @@ This project is a comprehensive food ordering platform where customers can brows
 - [Setup Instructions](#setup-instructions)
 - [API Endpoints](#api-endpoints)
 - [Database Schema](#database-schema)
+- [Design Component](#design-components)
 - [Future Enhancements](#future-enhancements)
 - [Contributing](#contributing)
 - [License](#license)
@@ -126,6 +127,12 @@ This project is a comprehensive food ordering platform where customers can brows
   - One-to-Many between Restaurant and MenuItems
   - Many-to-One between Order and Customer
   - Many-to-One between Order and Restaurant
+
+## Design Components
+
+- **You can view the design components for this application in the following PDF file. <!-- Add the correct path to the design file -->**
+  - [Design Components PDF](https://drive.google.com/file/d/1yi92F_Bt3iQkrItWLIv9Fi26bkunds4A/view?usp=sharing) 
+  - The PDF includes detailed designs for customer, restaurant, and delivery partner features.
 
 ## Future Enhancements
 
